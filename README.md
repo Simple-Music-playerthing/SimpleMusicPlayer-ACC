@@ -13,3 +13,4 @@
 ##### Maximus M. Campos-Reyna
 ##### Samuel Espen
 ##### Rico Liu
+##### Conor Wang
