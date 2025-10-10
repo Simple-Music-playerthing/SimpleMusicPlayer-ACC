@@ -1,4 +1,4 @@
-**Project Timeline**
+**Project Timeline** /n
 Week 2 (10/6): Intro to softwares.
 Week 3: Basic HTML and Final design 
 Week 4: JS + CSS
