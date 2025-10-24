@@ -1,0 +1,25 @@
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s ease;
+}
+
+.song {
+  width: 150px;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.song.current {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.song img {
+  width: 100%;
+  border-radius: 12px;
+}
