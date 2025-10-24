@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="description" content="Media player interface" />
+    <title>Media Player</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="player-frame">
+      <article id="player-body" class="div" role="region" aria-label="Media player interface">
+        <div class="window_controls">
+          <button onclick="backTransition()" id="back_button"><img src="img/back_button.png" alt=""></button>    
+          <button id="minimize"></button>
+          <button id="exit"></button>
+        </div>
+        <div class="carousel">
+          <img src="../../music/Cover of INERTIA (To Be Hero X) by ShiroNeko.jpg" alt="">
+          <img src="../../music/Cover of Magazines by Alohaii, Nia Suzune.jpg" alt="">
+          <img src="../../music/Cover of Better Luck Next Time by Alohaii, Shiki Miyoshino.jpg" alt="">
+        </div>
+        <div class="track_nav">
+          <button id="repeat_button"></button>
+          <div class="playback_controls">
+            <button id="back_track"></button>
+            <button id="play/pause""></button>
+            <button id="for_track"></button>
+          </div>
+          <button onclick="queueTransition()" id="queue"><img src="img/Property 1=default_state-Picsart-BackgroundRemover.png" alt=""></button>
+        </div>
+         <!--all of this formatting was for personal understanding of where the buttons n stuff would be, 
+          there's no functionality to em in exception to the queue-related ones of course-->
+      </article>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
