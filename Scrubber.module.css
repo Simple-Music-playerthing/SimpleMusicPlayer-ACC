@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:wght@400&display=swap');
+
+.timestamp {
+    color: 'white'; 
+    font-size: 14;
+    font-family: 'Ubuntu Sans Mono', monospace;
+    font-weight: '400';
+    word-wrap: 'break-word';
+}
