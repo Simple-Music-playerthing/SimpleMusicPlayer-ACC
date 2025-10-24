@@ -1,0 +1,71 @@
+body {
+  background-color: #1E1E1E;
+}
+
+.player-frame {
+  background-color: transparent;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  width: 100vw;
+}
+
+.player-frame .div {
+  background-image: url(./img/player.svg);
+  background-size: 100% 100%;
+  width: 360px;
+  height: 640px;
+}
+
+.player-frame {
+  background-color: transparent;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.player-frame .div {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background: linear-gradient(180deg, #2E203C 0%, #622C83 29.81%, #7F5D86 63.46%, #DDC1D6 98.08%);
+  background-size: 100% 100%;
+  border-radius: 16px;
+  background-repeat: no-repeat;
+  width: 360px;
+  height: 640px;
+  max-width: 100%;
+  transition: background 1s ease-in-out;
+  opacity: 1;
+
+}
+
+.window_controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.track_nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+
+#back_button {
+  display: none
+
+}
