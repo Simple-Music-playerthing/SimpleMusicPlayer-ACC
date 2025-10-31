@@ -116,3 +116,28 @@
     }
 }
 
+/* LOOP BUTTON */
+.loopbutton {
+  position: absolute; /* POSITIONS PROBABLY NEED TO BE CHANGED */
+  top: 91%;
+  left: 14%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.15));
+}
+
+.loopbutton svg {
+  transition: transform 0.2s, filter 0.2s;
+}
+
+/* hover only when not active */
+.loopbutton:not(.active):hover svg {
+  transform: scale(1.1);
+}
+
+/* bright/pressed state */
+.loopbutton:active svg,
+.loopbutton.active svg {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+}
