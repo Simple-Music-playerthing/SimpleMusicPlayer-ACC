@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from "react";
+
+export function useAudioProgress(audioRef: React.RefObject<HTMLAudioElement | null>) {
+    const [currentTime, setCurrentTime] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const [playing, setPlaying] = useState(false);
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        // Every like 250 ms
+        // const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+        // Once to load length
+        const handleLoadedMetadata = () => setDuration(audio.duration || 0);
+    
+        // audio.addEventListener("timeupdate", handleTimeUpdate);
+        audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+
+        if (audio.readyState >= 1) {
+            setDuration(audio.duration || 0);
+        }
+
+        let animationId: number;
+
+        const update = () => {
+            if (audio) {
+                if (audio.paused) {
+                    setPlaying(false);
+                } else {
+                    setPlaying(true);
+                    setCurrentTime(audio.currentTime);
+                }
+            }
+            animationId = requestAnimationFrame(update);
+        };
+
+        animationId = requestAnimationFrame(update);
+
+        return () => {
+            cancelAnimationFrame(animationId);
+            // audio.removeEventListener("timeupdate", handleTimeUpdate);
+            audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+        };
+    }, [audioRef]);
+
+    const setPlaybackTime = (time: number) => {
+        const audio = audioRef.current;
+        if (audio) { 
+            audio.currentTime = time;
+            setCurrentTime(time); 
+        }
+    };
+
+    const play = () => {
+        const audio = audioRef.current;
+        if (audio) audio.play();
+    }
+
+    const pause = () => {
+        const audio = audioRef.current;
+        if (audio) audio.pause();
+    }
+
+    return { currentTime, duration, playing, pause, play, setPlaybackTime };
+}
