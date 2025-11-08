@@ -1,20 +1,18 @@
-# **Project Timeline** 
-<h4>Week 1 (10/3): Intro to project. </h4>
-<h4>Week 2 (10/6): Intro to Git/GitHub. </h4> 
-<h4>Week 3 (10/13): HTML outline and Final design.</h4>
-<h4>Week 4 (10/20): Implementing Design as Component - JS + CSS.</h4>
-<h4>Week 5 (10/27): Continue Last Week. </h4> 
-<h4>Week 6 (11/3): Organize Folders, Assemble Page Content. </h4>
-<h4>Week 7 (11/10): Web to App convertion using Electron. </h4>
-<h4>Week 8 (11/17): Hack spotify API? </h4>
-<h4>Week 9 (11/24): Final Organization, Prep for DEMO. </h4>
-<h4>12/1: Project DEMO</h4>
+# React + Vite
 
-# Team members:
-##### Weiyiyi Wei
-##### Maximus M. Campos-Reyna
-##### Samuel Espen
-##### Rico Liu
-##### Conor Wang
-##### Eli Goodrich
-##### Shakir Islam
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+
+Note: This will impact Vite dev & build performances.
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

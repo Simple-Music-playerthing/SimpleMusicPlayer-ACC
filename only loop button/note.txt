@@ -1,4 +1,0 @@
-These files are my demo stripped of everything but my loop button code.
-
-I tried to add my full demo but it didn't let me upload it all at once.
-The files in this folder are also in my demo but there's a lot more code in the original App, index, and loopbutton files since I had to make/test the loop button in context.

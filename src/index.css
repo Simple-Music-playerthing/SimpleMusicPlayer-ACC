@@ -1,0 +1,94 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.loopbutton {
+  position: fixed; /* POSITIONS PROBABLY NEED TO BE CHANGED */
+  top: 85%;
+  left: 41%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.15));
+}
+
+.loopbutton svg {
+  transition: transform 0.2s, filter 0.2s;
+}
+
+/* hover only when not active */
+.loopbutton:not(.active):hover svg {
+  transform: scale(1.1);
+}
+
+/* bright/pressed state */
+.loopbutton:active svg,
+.loopbutton.active svg {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+}
+
+
+
+
+.carousel {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  width: 560px;
+  height: 218px;
+  transform: translate(-50%, -50%) scale(1.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* Make sure it's above background */
+}
+
+.scrubber {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Optional: set a fixed width if needed, e.g.: */
+  /* width: 320px; */
+  z-index: 20;
+}

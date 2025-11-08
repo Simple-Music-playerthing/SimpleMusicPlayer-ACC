@@ -1,3 +1,0 @@
-I am not entirely sure about the formatting such as font size, where the button is going to be placed, 
-and how it will be integrated with the other components, but the button functions properly. I also hope
-I integreated React properly.
