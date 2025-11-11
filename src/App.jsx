@@ -4,6 +4,8 @@ import AudioScrubber from "./components/Scrubber";
 import bg from "./assets/background.svg";
 import "./App.css";
 import LoopButton from "./components/loopbutton";
+import QueueButton from "./components/QueueButton.jsx";
+import SongQueue from "./components/SongQueue.jsx";
 
 function App() {
   const [isLooping, setIsLooping] = useState(false);
@@ -51,8 +53,9 @@ function App() {
       <div className="carousel">
         <Carousel/>
       </div>
-      
-
+      <div classname = "queue">
+        <QueueButton/>
+      </div>
       <LoopButton onLoopChange={handleLoopChange} />
       </div>
   );
