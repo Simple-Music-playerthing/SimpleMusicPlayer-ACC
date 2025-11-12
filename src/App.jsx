@@ -6,6 +6,7 @@ import "./App.css";
 import LoopButton from "./components/loopbutton";
 import QueueButton from "./components/QueueButton.jsx";
 import SongQueue from "./components/SongQueue.jsx";
+import PlayPauseButton from "./components/playButton.jsx";
 
 function App() {
   const [isLooping, setIsLooping] = useState(false);
@@ -48,7 +49,10 @@ function App() {
         <AudioScrubber audioRef={audioRef} />
       </div>
 
-
+      
+      <div className="playPause">
+        <PlayPauseButton/>
+      </div>
 
       <div className="carousel">
         <Carousel/>
