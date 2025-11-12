@@ -3,6 +3,7 @@ import { songs } from "./songs";
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [clicked, setClicked] = useState(0);
 
   const getWrappedIndex = (i) => {
     return (i + songs.length) % songs.length;
@@ -23,7 +24,9 @@ export default function Carousel() {
   return (
     <div>
         {/*buttons*/}
-        <div onClick={handlePrev} style={{ cursor: "pointer", width: "40px", height: "40px", position: "fixed", top: "163%", left: "43%", transform: "translate(-50%, -50%)"}}>
+        <div
+        
+        onClick={handlePrev} style={{ cursor: "pointer", width: "40px", height: "40px", position: "fixed", top: "163%", left: "43%", transform: "translate(-50%, -50%)"}}>
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 46 58" fill="none">
             <g filter="url(#filter0_d_43_70)">
               <path d="M16.6308 31.2218C15.3185 30.0313 15.3185 27.9687 16.6308 26.7782L33.0297 11.9C34.9575 10.151 38.0455 11.5189 38.0455 14.1219L38.0455 43.8781C38.0455 46.4811 34.9575 47.849 33.0297 46.1L16.6308 31.2218Z" fill="#D9D9D9"/>
@@ -88,14 +91,19 @@ export default function Carousel() {
             </defs>
           </svg>
         </div>
+      
+      {/*carousel*/}
       <div style={{ textAlign: "center", padding: "20px"}}>
         <div
           style={{
             display: "flex",
+            position: "fixed",
             gap: "20px",
             justifyContent: "center",
             alignItems: "center",
             marginTop: "30px",
+            top: "45%",
+            transform: "translate(-50%, -50%)"
           }}
         >
           {[prev, current, next].map((song, idx) => (
@@ -104,8 +112,10 @@ export default function Carousel() {
               style={{
                 textAlign: "center",
                 opacity: idx === 1 ? 1 : 0.5,
-                transform: idx === 1 ? "scale(1.1)" : "scale(0.9)",
+                transform: idx === 1 ? "scale(1.2)" : "scale(0.8)",
                 transition: "all 0.3s ease",
+                filter: idx === 1 ? "drop-shadow(0 0 4px rgba(0, 0, 0, .7))" 
+                                  : "blur(1.5px) drop-shadow(0 0 4px rgba(0, 0, 0, 0.15))"
               }}
             >
               <img
@@ -118,12 +128,11 @@ export default function Carousel() {
                   objectFit: "cover",
                 }}
               />
-              <p>{song.title}</p>
-              <small>{song.artist}</small>
+              <p style={{position: "fixed",top:"98%",left: "50%", transform: "translate(-50%, -50%)"}}>{song.title}</p>
+              <small style={{position: "fixed",top:"125%",left: "50%", transform: "translate(-50%, -50%)", fontSize: "10px",whiteSpace: "nowrap"}}>{song.artist}</small>
             </div>
           ))}
         </div>
-      
       </div>
     </div>
   );
