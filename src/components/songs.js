@@ -21,6 +21,6 @@ export const songs = [
     title: "Totentanz",
     artist: "Franz Liszt",
     file: "/music/totentanz.mp3",
-    cover: "/covers/totentanz.jpg",
+    cover: "/covers/totentanz.png",
   },
 ];

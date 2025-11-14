@@ -44,7 +44,7 @@ h1 {
 
 .loopbutton {
   position: fixed; /* POSITIONS PROBABLY NEED TO BE CHANGED */
-  top: 85%;
+  top: 82.5%;
   left: 41%;
   transform: translate(-50%,-50%);
   cursor: pointer;
@@ -70,7 +70,7 @@ h1 {
 
 .playPause {
   position: fixed;
-  top: 85.5%;
+  top: 82.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(-3px 3px 4px rgba(0, 0, 0, 0.25));
