@@ -48,7 +48,6 @@ h1 {
   height: 640px;
   transform: translate(-50%, -50%);
   z-index: 0;
-  /* user-select: none; */
 }
 
 .loopButtonOuter {
@@ -56,8 +55,6 @@ h1 {
   top: 92%;
   left: 15%;
   transform: translate(-50%,-50%);
-  z-index: 5000;
-  /* user-select: none; */
 }
 
 .loopbutton {

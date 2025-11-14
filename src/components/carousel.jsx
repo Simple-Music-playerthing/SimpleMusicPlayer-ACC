@@ -32,7 +32,7 @@ const Carousel = forwardRef(({onSongChanged}, ref) => {
         {/*buttons*/}
         <div
         
-        onClick={handlePrev} style={{ cursor: "pointer", width: "40px", height: "40px", position: "fixed", top: "163%", left: "43%", transform: "translate(-50%, -50%)"}}>
+        onClick={handlePrev} style={{ cursor: "pointer", width: "40px", height: "40px", position: "fixed", top: "162%", left: "44%", transform: "translate(-50%, -50%)"}}>
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 46 58" fill="none">
             <g filter="url(#filter0_d_43_70)">
               <path d="M16.6308 31.2218C15.3185 30.0313 15.3185 27.9687 16.6308 26.7782L33.0297 11.9C34.9575 10.151 38.0455 11.5189 38.0455 14.1219L38.0455 43.8781C38.0455 46.4811 34.9575 47.849 33.0297 46.1L16.6308 31.2218Z" fill="#D9D9D9"/>
@@ -65,7 +65,7 @@ const Carousel = forwardRef(({onSongChanged}, ref) => {
           </svg>
         </div>
 
-      <div onClick={handleNext} style={{ cursor: "pointer", width: "40px", height: "40px", position: "fixed", top: "163%", left: "56%",transform: "translate(-50%, -50%)"}}>
+      <div onClick={handleNext} style={{ cursor: "pointer", width: "40px", height: "40px", position: "fixed", top: "162%", left: "56%",transform: "translate(-50%, -50%)"}}>
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 46 58" fill="none">
             <g filter="url(#filter0_d_44_76)">
               <path d="M29.3691 26.7782C30.6813 27.9687 30.6813 30.0313 29.3691 31.2218L12.9702 46.1C11.0423 47.849 7.95437 46.4811 7.95437 43.8781L7.95437 14.1219C7.95437 11.5189 11.0424 10.151 12.9702 11.9L29.3691 26.7782Z" fill="#D9D9D9"/>
