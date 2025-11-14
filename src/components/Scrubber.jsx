@@ -23,6 +23,7 @@ export default function AudioScrubber({ audioRef }) {
     setIsDragging(true);
     updateProgress(e.clientX);
     if (playing) { setAudioShouldPlay(true); }
+    console.log(playing);
     pause();
   };
 
@@ -32,7 +33,9 @@ export default function AudioScrubber({ audioRef }) {
 
   const handleMouseUp = () => { 
     setIsDragging(false); 
-    if (audioShouldPlay) { play(); }
+    if (audioShouldPlay) { 
+      play();
+    }
     setAudioShouldPlay(false);
   };
 
