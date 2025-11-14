@@ -1,0 +1,13 @@
+To run the project (for testing):
+
+npm run dev
+The console running this command must stay open
+( this might break if the port doesnt end up being 5173 )
+
+npm run electron
+
+
+
+To actually ship it there's something we can use
+https://medium.com/@utkuy.ceng/converting-your-react-app-to-an-electron-desktop-app-5efdafd15d7b
+See #Packaging and Distribution

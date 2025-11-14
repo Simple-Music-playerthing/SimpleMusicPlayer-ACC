@@ -4,11 +4,14 @@ import { app, BrowserWindow } from "electron"
 function createWindow() {
     const win = new BrowserWindow({
         width: 360,
-        width: 640,
+        height: 660,
         webPreferences: {
             nodeIntegration: true
-        }
+        },
+        resizable: false
     });
+
+    win.setMenu(null);
 
     win.loadURL("http://localhost:5173")
 }

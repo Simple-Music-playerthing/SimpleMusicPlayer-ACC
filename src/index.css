@@ -111,3 +111,8 @@ h1 {
   /* width: 320px; */
   z-index: 20;
 }
+
+
+::-webkit-scrollbar {
+  display: none;
+}
