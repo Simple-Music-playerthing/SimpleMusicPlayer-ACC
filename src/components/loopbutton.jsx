@@ -42,8 +42,6 @@ export default function LoopButton({ onLoopChange }) {
           </filter>
         </defs>
       </svg>
-      
     </div>
-    
   );
 }

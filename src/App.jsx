@@ -79,22 +79,20 @@ function App() {
 
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
-      <img // ** BACKGROUND **
-        src={bg}
-        alt=""
-        style={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          width: "360px",
-          height: "640px",
-          transform: "translate(-50%, -50%)",
-          zIndex: -1,
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      />
-
+      <div className="background">
+        <img // ** BACKGROUND **
+          src={bg}
+          alt=""
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+        />
+        <div className="loopButtonOuter">
+          <LoopButton onLoopChange={handleLoopChange} />
+        </div>
+      </div>
 
       {/* AUDIO PLAYER ELEMENT STUFF */}
       {/* <audio ref={audioRef} src="/music/5150.mp3" /> */}
@@ -116,8 +114,7 @@ function App() {
       <div className = "queue">
         <QueueButton/>
       </div>
-        <LoopButton onLoopChange={handleLoopChange} />
-      </div>
+    </div>
   );
 }
 
