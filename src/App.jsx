@@ -16,10 +16,7 @@ function App() {
   // note: don't use typing like this commented out section in jsx files 
   const audioRef = useRef/*<HTMLAudioElement>*/(null);
   const playButtonRef = useRef(null);
-  
-  // TODO: Advance song at end
-  // TODO: Make sure looping works correctly
-  // TODO: Sync what the queue / carousel and skip buttons are doing with this
+  const carouselRef = useRef(null);
 
   const handleLoopChange = (newState) => {
     setIsLooping(newState);
@@ -64,6 +61,22 @@ function App() {
     audio.addEventListener("canplay", onCanPlay);
   };
 
+  const onAudioEnded = () => {
+    const audio = audioRef.current;
+    if (!audio) {
+      console.warn("Warning: Audio was not present");
+      return;
+    }
+
+    if (isLooping) {
+      // Loop
+      audio.currentTime = 0;
+    } else {
+      // Advance
+      carouselRef.current.forceAdvance();
+    }
+  };
+
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
       <img // ** BACKGROUND **
@@ -86,7 +99,7 @@ function App() {
       {/* AUDIO PLAYER ELEMENT STUFF */}
       {/* <audio ref={audioRef} src="/music/5150.mp3" /> */}
       <div className="audio">
-        <AudioPlayer ref={audioRef} src={songs[songIndex].file}></AudioPlayer>
+        <AudioPlayer ref={audioRef} src={songs[songIndex].file} ended={onAudioEnded}></AudioPlayer>
       </div>
 
       <div className="scrubber">
@@ -98,7 +111,7 @@ function App() {
       </div>
 
       <div className="carousel">
-        <Carousel onSongChanged={onSongChanged}/>
+        <Carousel ref={carouselRef} onSongChanged={onSongChanged}/>
       </div>
       <div className = "queue">
         <QueueButton/>

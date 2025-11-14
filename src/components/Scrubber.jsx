@@ -82,7 +82,7 @@ export default function AudioScrubber({ audioRef }) {
     return `${m}:${s.toString().padStart(2, '0')}`;
   };
 
-  const progress = duration ? currentTime / duration : 0;
+  const progress = duration ? Math.min(1, currentTime / duration) : 0;
 
   return (
     <div>

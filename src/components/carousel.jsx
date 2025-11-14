@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { songs } from "./songs";
 
-export default function Carousel({onSongChanged}) {
+const Carousel = forwardRef(({onSongChanged}, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [clicked, setClicked] = useState(0);
 
@@ -22,6 +22,10 @@ export default function Carousel({onSongChanged}) {
     setCurrentIndex((i) => getWrappedIndex(i + 1));
     onSongChanged(getWrappedIndex(currentIndex + 1));
   };
+
+  useImperativeHandle(ref, () => ({
+    forceAdvance: () => handleNext()
+  }));
 
   return (
     <div>
@@ -138,4 +142,6 @@ export default function Carousel({onSongChanged}) {
       </div>
     </div>
   );
-}
+});
+
+export default Carousel;
