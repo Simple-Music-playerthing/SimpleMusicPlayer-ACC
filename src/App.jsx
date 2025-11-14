@@ -9,14 +9,15 @@ import SongQueue from "./components/SongQueue.jsx";
 import PlayPauseButton from "./components/playButton.jsx";
 import AudioPlayer from "./components/AudioPlayer.jsx";
 import { songs } from "./components/songs.js";
-import ErrorBoundary from "./components/ErrorBoundary.jsx"
 
 function App() {
   const [isLooping, setIsLooping] = useState(false);
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // sfduihfsdIHSASUIHIUDFSFSD
+  // note: don't use typing like this commented out section in jsx files 
   const audioRef = useRef/*<HTMLAudioElement>*/(null);
-  console.log(typeof(audioRef));
+  
+  // TODO: Make this advance at song end
+  // TODO: Make sure looping works correctly
+  // TODO: Sync what the queue / carousel and skip buttons are doing with this
   let currentSong = songs[0];
 
   const handleLoopChange = (newState) => {
@@ -28,18 +29,6 @@ function App() {
 
     console.log(newState ? "Loop ON" : "Loop OFF"); // ** temporary: only for testing
   };
-
-  // const togglePlay = () => {
-  //   const audio = audioRef.current;
-  //   if (!audio) return;
-
-  //   if (isPlaying) {
-  //     audio.pause();
-  //   } else {
-  //     audio.play();
-  //   }
-  //   setIsPlaying(true);
-  // };
 
   const onPlayChange = (state) => {
     const audio = audioRef.current;
@@ -76,13 +65,12 @@ function App() {
 
       {/* AUDIO PLAYER ELEMENT STUFF */}
       {/* <audio ref={audioRef} src="/music/5150.mp3" /> */}
+      <div className="audio">
+        <AudioPlayer ref={audioRef} src={currentSong.file}></AudioPlayer>
+      </div>
 
       <div className="scrubber">
         <AudioScrubber audioRef={audioRef} />
-      </div>
-
-      <div className="audio">
-        <AudioPlayer ref={audioRef} src={currentSong.file}></AudioPlayer>
       </div>
 
       <div className="playPause">

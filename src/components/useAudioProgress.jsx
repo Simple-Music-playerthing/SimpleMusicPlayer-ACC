@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// Helper class to seek / pause / play an audio tag and return the current time
 export function useAudioProgress(audioRef) {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
