@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import "../index.css";
 
-export default function PlayPauseButton({ onPlayChange }) {
+const PlayPauseButton = forwardRef(({ onPlayChange }, ref) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
@@ -9,6 +9,13 @@ export default function PlayPauseButton({ onPlayChange }) {
     setIsPlaying(newState);
     if (onPlayChange) onPlayChange(newState);
   };
+
+  useImperativeHandle(ref, () => ({
+    setPlaying: (value) => {
+      setIsPlaying(value);
+      if (onPlayChange) { onPlayChange(value); }
+    }
+  }));
 
   return (
     <div
@@ -65,4 +72,6 @@ export default function PlayPauseButton({ onPlayChange }) {
       )}
     </div>
   );
-}
+});
+
+export default PlayPauseButton;

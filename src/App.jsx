@@ -12,13 +12,14 @@ import { songs } from "./components/songs.js";
 
 function App() {
   const [isLooping, setIsLooping] = useState(false);
+  const [songIndex, setSongIndex] = useState(0);
   // note: don't use typing like this commented out section in jsx files 
   const audioRef = useRef/*<HTMLAudioElement>*/(null);
+  const playButtonRef = useRef(null);
   
-  // TODO: Make this advance at song end
+  // TODO: Advance song at end
   // TODO: Make sure looping works correctly
   // TODO: Sync what the queue / carousel and skip buttons are doing with this
-  let currentSong = songs[0];
 
   const handleLoopChange = (newState) => {
     setIsLooping(newState);
@@ -44,6 +45,25 @@ function App() {
     }
   };
 
+  const onSongChanged = (new_index) => {
+    const audio = audioRef.current;
+    if (!audio) {
+      console.warn("Warning: Audio was not present");
+      return;
+    }
+
+    const onCanPlay = () => {
+      audio.currentTime = 0;
+      audio.play();
+      console.log("Play");
+      playButtonRef.current.setPlaying(true);
+      audio.removeEventListener("canplay", onCanPlay);
+    };
+
+    setSongIndex(new_index);
+    audio.addEventListener("canplay", onCanPlay);
+  };
+
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
       <img // ** BACKGROUND **
@@ -66,7 +86,7 @@ function App() {
       {/* AUDIO PLAYER ELEMENT STUFF */}
       {/* <audio ref={audioRef} src="/music/5150.mp3" /> */}
       <div className="audio">
-        <AudioPlayer ref={audioRef} src={currentSong.file}></AudioPlayer>
+        <AudioPlayer ref={audioRef} src={songs[songIndex].file}></AudioPlayer>
       </div>
 
       <div className="scrubber">
@@ -74,13 +94,13 @@ function App() {
       </div>
 
       <div className="playPause">
-        <PlayPauseButton onPlayChange={onPlayChange}/>
+        <PlayPauseButton ref={playButtonRef} onPlayChange={onPlayChange}/>
       </div>
 
       <div className="carousel">
-        <Carousel/>
+        <Carousel onSongChanged={onSongChanged}/>
       </div>
-      <div classname = "queue">
+      <div className = "queue">
         <QueueButton/>
       </div>
         <LoopButton onLoopChange={handleLoopChange} />

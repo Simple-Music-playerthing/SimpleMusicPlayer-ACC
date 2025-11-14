@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { songs } from "./songs";
 
-export default function Carousel() {
+export default function Carousel({onSongChanged}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [clicked, setClicked] = useState(0);
 
@@ -15,10 +15,12 @@ export default function Carousel() {
 
   const handlePrev = () => {
     setCurrentIndex((i) => getWrappedIndex(i - 1));
+    onSongChanged(getWrappedIndex(currentIndex - 1));
   };
 
   const handleNext = () => {
     setCurrentIndex((i) => getWrappedIndex(i + 1));
+    onSongChanged(getWrappedIndex(currentIndex + 1));
   };
 
   return (
@@ -35,8 +37,8 @@ export default function Carousel() {
               <rect x="4" y="4" width="4" height="50" rx="2" fill="#D9D9D9"/>
             </g>
             <defs>
-              <filter id="filter0_d_43_70" x="11.6466" y="11.116" width="30.3989" height="43.7681" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <filter id="filter0_d_43_70" x="11.6466" y="11.116" width="30.3989" height="43.7681" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset dy="4"/>
                 <feGaussianBlur stdDeviation="2"/>
@@ -45,8 +47,8 @@ export default function Carousel() {
                 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_43_70"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_43_70" result="shape"/>
               </filter>
-              <filter id="filter1_d_43_70" x="0" y="0" width="12" height="58" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <filter id="filter1_d_43_70" x="0" y="0" width="12" height="58" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset/>
                 <feGaussianBlur stdDeviation="2"/>
@@ -68,8 +70,8 @@ export default function Carousel() {
               <rect x="41.9998" y="54" width="4" height="50" rx="2" transform="rotate(-180 41.9998 54)" fill="#D9D9D9"/>
             </g>
             <defs>
-              <filter id="filter0_d_44_76" x="3.95438" y="11.116" width="30.3989" height="43.7681" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <filter id="filter0_d_44_76" x="3.95438" y="11.116" width="30.3989" height="43.7681" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset dy="4"/>
                 <feGaussianBlur stdDeviation="2"/>
@@ -78,8 +80,8 @@ export default function Carousel() {
                 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_44_76"/>
                 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_44_76" result="shape"/>
               </filter>
-              <filter id="filter1_d_44_76" x="33.9998" y="0" width="12" height="58" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <filter id="filter1_d_44_76" x="33.9998" y="0" width="12" height="58" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feOffset/>
                 <feGaussianBlur stdDeviation="2"/>

@@ -18,6 +18,12 @@ export const songs = [
     cover: "/covers/goodnight.png",
   },
   {
+    title: "Denpa",
+    artist: "ooxygen",
+    file: "/music/Denpa.mp3",
+    cover: "/covers/Denpa.png"
+  },
+  {
     title: "Totentanz",
     artist: "Franz Liszt",
     file: "/music/totentanz.mp3",
