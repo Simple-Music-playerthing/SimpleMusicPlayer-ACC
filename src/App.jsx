@@ -92,6 +92,18 @@ function App() {
         <div className="loopButtonOuter">
           <LoopButton onLoopChange={handleLoopChange} />
         </div>
+
+        <div className="scrubber">
+          <AudioScrubber audioRef={audioRef} />
+        </div>
+
+        <div className="playPause">
+          <PlayPauseButton ref={playButtonRef} onPlayChange={onPlayChange}/>
+        </div>
+
+        <div className="carousel">
+          <Carousel ref={carouselRef} onSongChanged={onSongChanged}/>
+        </div>
       </div>
 
       {/* AUDIO PLAYER ELEMENT STUFF */}
@@ -100,17 +112,6 @@ function App() {
         <AudioPlayer ref={audioRef} src={songs[songIndex].file} ended={onAudioEnded}></AudioPlayer>
       </div>
 
-      <div className="scrubber">
-        <AudioScrubber audioRef={audioRef} />
-      </div>
-
-      <div className="playPause">
-        <PlayPauseButton ref={playButtonRef} onPlayChange={onPlayChange}/>
-      </div>
-
-      <div className="carousel">
-        <Carousel ref={carouselRef} onSongChanged={onSongChanged}/>
-      </div>
       <div className = "queue">
         <QueueButton/>
       </div>
