@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, createRef } from "react";
 import Carousel from "./components/carousel";
 import AudioScrubber from "./components/Scrubber";
 import bg from "./assets/background.svg";
@@ -7,20 +7,53 @@ import LoopButton from "./components/loopbutton";
 import QueueButton from "./components/QueueButton.jsx";
 import SongQueue from "./components/SongQueue.jsx";
 import PlayPauseButton from "./components/playButton.jsx";
+import AudioPlayer from "./components/AudioPlayer.jsx";
+import { songs } from "./components/songs.js";
+import ErrorBoundary from "./components/ErrorBoundary.jsx"
 
 function App() {
   const [isLooping, setIsLooping] = useState(false);
-  const audioRef = useRef(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // sfduihfsdIHSASUIHIUDFSFSD
+  const audioRef = useRef/*<HTMLAudioElement>*/(null);
+  console.log(typeof(audioRef));
+  let currentSong = songs[0];
 
-    const handleLoopChange = (newState) => {
-      setIsLooping(newState);
+  const handleLoopChange = (newState) => {
+    setIsLooping(newState);
 
-      if (audioRef.current) {
-        audioRef.current.loop = newState; 
-      }
+    if (audioRef.current) {
+      audioRef.current.loop = newState; 
+    }
 
-      console.log(newState ? "Loop ON" : "Loop OFF"); // ** temporary: only for testing
-    };
+    console.log(newState ? "Loop ON" : "Loop OFF"); // ** temporary: only for testing
+  };
+
+  // const togglePlay = () => {
+  //   const audio = audioRef.current;
+  //   if (!audio) return;
+
+  //   if (isPlaying) {
+  //     audio.pause();
+  //   } else {
+  //     audio.play();
+  //   }
+  //   setIsPlaying(true);
+  // };
+
+  const onPlayChange = (state) => {
+    const audio = audioRef.current;
+    if (!audio) {
+      console.warn("Warning: Audio was not present");
+      return;
+    }
+
+    if (state) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  };
 
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
@@ -42,16 +75,18 @@ function App() {
 
 
       {/* AUDIO PLAYER ELEMENT STUFF */}
-      <audio ref={audioRef} src="/music/5150.mp3" />
+      {/* <audio ref={audioRef} src="/music/5150.mp3" /> */}
 
-      
       <div className="scrubber">
         <AudioScrubber audioRef={audioRef} />
       </div>
 
-      
+      <div className="audio">
+        <AudioPlayer ref={audioRef} src={currentSong.file}></AudioPlayer>
+      </div>
+
       <div className="playPause">
-        <PlayPauseButton/>
+        <PlayPauseButton onPlayChange={onPlayChange}/>
       </div>
 
       <div className="carousel">
@@ -60,7 +95,7 @@ function App() {
       <div classname = "queue">
         <QueueButton/>
       </div>
-      <LoopButton onLoopChange={handleLoopChange} />
+        <LoopButton onLoopChange={handleLoopChange} />
       </div>
   );
 }
