@@ -134,7 +134,7 @@ const Carousel = forwardRef(({onSongChanged}, ref) => {
                   objectFit: "cover",
                 }}
               />
-              <p style={{position: "fixed",top:"98%",left: "50%", transform: "translate(-50%, -50%)"}}>{song.title}</p>
+              <p style={{position: "fixed",top:"98%",left: "50%", transform: "translate(-50%, -50%)", width: "300px"}}>{song.title}</p>
               <small style={{position: "fixed",top:"125%",left: "50%", transform: "translate(-50%, -50%)", fontSize: "10px",whiteSpace: "nowrap"}}>{song.artist}</small>
             </div>
           ))}
