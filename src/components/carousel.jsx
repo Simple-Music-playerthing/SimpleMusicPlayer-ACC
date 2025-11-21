@@ -1,7 +1,7 @@
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useState, useRef } from "react";
 import { songs } from "./songs";
 
-const Carousel = forwardRef(({onSongChanged}, ref) => {
+const Carousel = forwardRef(({onSongChanged, shuffle}, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [clicked, setClicked] = useState(0);
 
@@ -13,14 +13,52 @@ const Carousel = forwardRef(({onSongChanged}, ref) => {
   const current = songs[getWrappedIndex(currentIndex)];
   const next = songs[getWrappedIndex(currentIndex + 1)];
 
+  const shuffledIndexes = useRef([]); // randomly sorted indexes, shrinks and replenishes
+  const playedHistory = useRef([]); // stores played history for shuffled
+
+  const storeIndex = (ind) => {
+    if (playedHistory.current.length >= 100) {
+      playedHistory.current.shift();
+    }
+    playedHistory.current.push(ind);
+  }
+
+  const makeShuffleList = () => {
+    let pool = Array.from({ length: songs.length }, (_, i) => i);
+    // Fisher-Yates shuffle
+    do {
+      for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    } while (pool[0] == currentIndex);
+    return pool;
+  }
+
   const handlePrev = () => {
-    setCurrentIndex((i) => getWrappedIndex(i - 1));
-    onSongChanged(getWrappedIndex(currentIndex - 1));
+    if (shuffle && playedHistory.current.length > 1) { // if > 0, u have to double click prev when list empty, idk why
+      const prevIndex = getWrappedIndex(playedHistory.current.pop());
+      setCurrentIndex(prevIndex);
+      onSongChanged(prevIndex);
+    } else {
+      setCurrentIndex((i) => getWrappedIndex(i - 1));
+      onSongChanged(getWrappedIndex(currentIndex - 1));
+    }
   };
 
   const handleNext = () => {
-    setCurrentIndex((i) => getWrappedIndex(i + 1));
-    onSongChanged(getWrappedIndex(currentIndex + 1));
+    if (shuffle) {
+      if (shuffledIndexes.current.length === 0) {
+      shuffledIndexes.current = makeShuffleList();
+      }
+      setCurrentIndex(shuffledIndexes.current[0]);
+      storeIndex(currentIndex)
+      onSongChanged(getWrappedIndex(shuffledIndexes.current.shift()));
+    } else {
+      setCurrentIndex((i) => getWrappedIndex(i + 1));
+      storeIndex(currentIndex);
+      onSongChanged(getWrappedIndex(currentIndex + 1));
+    }
   };
 
   useImperativeHandle(ref, () => ({
@@ -120,8 +158,12 @@ const Carousel = forwardRef(({onSongChanged}, ref) => {
                 opacity: idx === 1 ? 1 : 0.5,
                 transform: idx === 1 ? "scale(1.2)" : "scale(0.8)",
                 transition: "all 0.3s ease",
-                filter: idx === 1 ? "drop-shadow(0 0 4px rgba(0, 0, 0, .7))" 
-                                  : "blur(1.5px) drop-shadow(0 0 4px rgba(0, 0, 0, 0.15))"
+                filter: idx === 1
+                  ? "drop-shadow(0 0 4px rgba(0, 0, 0, .7))"
+                  : [
+                      shuffle ? "blur(20px)" : "blur(1.5px)", // blur line, easy to remove/change
+                      "drop-shadow(0 0 4px rgba(0, 0, 0, 0.15))"
+                    ].join(" ")
               }}
             >
               <img
