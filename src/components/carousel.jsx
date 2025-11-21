@@ -31,12 +31,12 @@ const Carousel = forwardRef(({onSongChanged, shuffle}, ref) => {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
-    } while (pool[0] != currentIndex);
+    } while (pool[0] == currentIndex);
     return pool;
   }
 
   const handlePrev = () => {
-    if (shuffle && playedHistory.current.length > 0) {
+    if (shuffle && playedHistory.current.length > 1) { // if > 0, u have to double click prev when list empty, idk why
       const prevIndex = getWrappedIndex(playedHistory.current.pop());
       setCurrentIndex(prevIndex);
       onSongChanged(prevIndex);
@@ -48,7 +48,7 @@ const Carousel = forwardRef(({onSongChanged, shuffle}, ref) => {
 
   const handleNext = () => {
     if (shuffle) {
-      if (shuffledIndexes.current.length === 1) { // if === 0, u have to double click prev when list empty, idk why
+      if (shuffledIndexes.current.length === 0) {
       shuffledIndexes.current = makeShuffleList();
       }
       setCurrentIndex(shuffledIndexes.current[0]);
