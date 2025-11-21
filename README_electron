@@ -1,13 +1,4 @@
-To run the project (for testing):
+Building:
 
-npm run dev
-The console running this command must stay open
-( this might break if the port doesnt end up being 5173 )
-
-npm run electron
-
-
-
-To actually ship it there's something we can use
-https://medium.com/@utkuy.ceng/converting-your-react-app-to-an-electron-desktop-app-5efdafd15d7b
-See #Packaging and Distribution
+run buildArtifact.bat and the .exe will be in the smp4-win32-x64 folder
+All files present in this folder need to be there for the exe to run correctly

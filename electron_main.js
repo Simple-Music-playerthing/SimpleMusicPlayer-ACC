@@ -1,4 +1,6 @@
 import { app, BrowserWindow } from "electron"
+import path from "path"
+import { fileURLToPath } from "url";
 
 // https://medium.com/@utkuy.ceng/converting-your-react-app-to-an-electron-desktop-app-5efdafd15d7b
 function createWindow() {
@@ -12,8 +14,16 @@ function createWindow() {
     });
 
     win.setMenu(null);
+    // win.webContents.openDevTools();
 
-    win.loadURL("http://localhost:5173")
+    // if (app.isPackaged) {
+    //     win.loadFile('index.html');
+    // } else {
+    //     win.loadURL("http://localhost:5173")
+    // }
+    const filename = fileURLToPath(import.meta.url);
+    const dirname = path.dirname(filename);
+    win.loadFile(path.join(dirname, 'dist', 'index.html'));
 }
 
 app.whenReady().then(createWindow);
