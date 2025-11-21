@@ -9,10 +9,12 @@ import SongQueue from "./components/SongQueue.jsx";
 import PlayPauseButton from "./components/playButton.jsx";
 import AudioPlayer from "./components/AudioPlayer.jsx";
 import { songs } from "./components/songs.js";
+import Shuffle from "./components/shuffleButton.jsx";
 
 function App() {
   const [isLooping, setIsLooping] = useState(false);
   const [songIndex, setSongIndex] = useState(0);
+  const [shuffleActive, setShuffleActive] = useState(false);
   // note: don't use typing like this commented out section in jsx files 
   const audioRef = useRef/*<HTMLAudioElement>*/(null);
   const playButtonRef = useRef(null);
@@ -40,6 +42,10 @@ function App() {
     } else {
       audio.pause();
     }
+  };
+
+  const handleShuffleChange = (isActive) => {
+    setShuffleActive(isActive);
   };
 
   const onSongChanged = (new_index) => {
@@ -102,8 +108,13 @@ function App() {
         </div>
 
         <div className="carousel">
-          <Carousel ref={carouselRef} onSongChanged={onSongChanged}/>
+          <Carousel ref={carouselRef} shuffle={shuffleActive} onSongChanged={onSongChanged}/>
         </div>
+
+        <div className="shuffle">
+          <Shuffle onShuffleChange={handleShuffleChange} />
+        </div>
+
       </div>
 
       {/* AUDIO PLAYER ELEMENT STUFF */}
