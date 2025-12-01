@@ -16,13 +16,13 @@ Accessable on the main branch. Use `npm run install` `npm run dev`
 Accessable on the electroin branch. Can be downloaded as exe file. Futher instruction follow readme in electron branch. 
 
 # **Project Timeline** 
-##### Week 2 (10/6): Intro to softwares.
+##### Week 2 (10/6): Intro to Git/GitHub.
 ##### Week 3: Basic HTML and Final design 
 ##### Week 4: JS + CSS
-##### Week 5: Web to App convertion using Electron
-##### Week 6: Sound Visualizer 
-##### Week 7: Building server
-##### Week 8: Building server
+##### Week 5: Create React components
+##### Week 6: Organize Repo
+##### Week 7: Integrate Electron and Ngrok
+##### Week 8: Finalize & Update readMe
 ##### **12/1: Project DEMO**
 
 # Team members:
