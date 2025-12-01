@@ -1,6 +1,7 @@
 # Simple Music Player Window
-A simple mp3 software with pre-made playlist integrated for demonstration purpose. The window is available as desktop application and webpage. 
-![demo image]{/public/demo.png}
+A simple mp3 software with pre-made playlist integrated for demonstration purpose. The window is available as desktop application and webpage.\
+<h4>User interface:</h4>
+<img src="/public/demo.png" width="300" height="500">
 
 # Key features
 - loop button
