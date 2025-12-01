@@ -19,7 +19,6 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-
 }
 
 h1 {
@@ -54,7 +53,7 @@ h1 {
   position: fixed;
   top: 92%;
   left: 15%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .loopbutton {
@@ -99,7 +98,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10; /* Make sure it's above background */
+  z-index: 10;
 }
 
 .scrubber {
@@ -107,11 +106,27 @@ h1 {
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Optional: set a fixed width if needed, e.g.: */
-  /* width: 320px; */
   z-index: 20;
 }
 
+.shuffle {
+  position: fixed;
+  top: 92%;
+  left: 85%;
+  transform: translate(-50%,-50%);
+}
+
+.shuffle svg {
+  transition: transform 0.2s, filter 0.2s, opacity 0.15s ease;
+  opacity: .5;
+  pointer-events: all;
+}
+
+.shuffle:active svg,
+.shuffle.active svg {
+  transform: scale(1.1);
+  opacity: 1;
+}
 
 ::-webkit-scrollbar {
   display: none;
