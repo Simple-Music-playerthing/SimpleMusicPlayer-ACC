@@ -12,7 +12,9 @@ The window is available as desktop application and webpage.
 
 # How to access the window
 <h3> Ngrok web access </h3>
-Accessable on the main branch. Use `npm run install` `npm run dev` 
+Accessable on the main branch.
+
+Use `npm run install` `npm run dev` to complete setup and view.
 <h3> Electron desktop application </h3> 
 Accessable on the electroin branch. Can be downloaded as exe file. Futher instruction follow readme in electron branch. 
 
