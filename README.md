@@ -1,18 +1,34 @@
-# React + Vite
+# Simple Music Player Window
+A simple mp3 software with pre-made playlist integrated for demonstration purpose. The window is available as desktop application and webpage. 
+![demo image]{}
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Key features
+- loop button
+- shuffle button
+- basic interface control
+- visual carousel 
 
-Currently, two official plugins are available:
+# How to access the window
+<h3> Ngrok web access </h3>
+Accessable on the main branch. Use `npm run install` `npm run dev` 
+<h3> Electron desktop application </h3> 
+Accessable on the electroin branch. Can be downloaded as exe file. Futher instruction follow readme in electron branch. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# **Project Timeline** 
+##### Week 2 (10/6): Intro to softwares.
+##### Week 3: Basic HTML and Final design 
+##### Week 4: JS + CSS
+##### Week 5: Web to App convertion using Electron
+##### Week 6: Sound Visualizer 
+##### Week 7: Building server
+##### Week 8: Building server
+##### **12/1: Project DEMO**
 
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Team members:
+##### Weiyiyi Wei
+##### Maximus M. Campos-Reyna
+##### Samuel Espen
+##### Rico Liu
+##### Conor Wang
+##### Eli Goodrich
+##### Shakir Islam
